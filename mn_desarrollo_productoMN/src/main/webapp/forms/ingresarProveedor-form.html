@@ -1,0 +1,59 @@
+<strong>Proceso Desarrollo ProductoMN</strong>
+
+<p>
+  Ingresar proveedores del producto
+</p>
+
+<form role="form" name="form" class="form-horizontal" >
+
+  <script cam-script type="text/form-script">
+	
+	//formulario angular trabaja sobre objecto scope
+	var dataProducto= $scope.dataProducto ={
+	};
+
+	//enganchar con el ciclo de vida del formulario camunda SDK 
+	camForm.on('form-loaded',function() {
+
+		/*declarar variable 'dataProducto' 
+		  incluyendo infromacion metadata para serializacion*/
+		camForm.variableManager.createVariable({
+			name: 'dataProducto',
+			type: 'Object',
+			value: dataProducto,
+			valueInfo: {
+			  //indicar que el objeto es serializado como json
+			  serializationDataFormat: 'application/json',
+			  //proveer nombre de la clase java a mapear
+			  objectTypeName: 'org.camunda.bpm.menini_nicola.mn_desarrollo_productoMN.ProductoMN'
+			}
+		});		
+
+	});	
+
+  </script>
+
+<div class="control-group">
+    <div class="controls">
+
+      <label for="PROVEEDOR" class="control-label">Proveedor *</label>
+      <input id="idProveedor"
+      		 class="form-control" 
+      		 type="text"
+      		 required      		 
+      		 ng-model="dataProducto.proveedor"
+      		 name="PROVEEDOR" 
+             maxlength=100>
+            
+         <!--validar ingreso de proveedor-->
+      <p>
+      	<span style="color:red" ng-show="form.PROVEEDOR.$dirty && form.PROVEEDOR.$invalid">
+  		<span ng-show="form.PROVEEDOR.$error.required">proveedor es obligatorio</span>
+  		</span>
+      </p>
+      
+             
+    </div>
+</div>
+
+</form>
