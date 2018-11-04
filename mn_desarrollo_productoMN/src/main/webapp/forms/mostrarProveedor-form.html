@@ -1,0 +1,29 @@
+<center>
+	<h1><strong>Desarrollo ProductoMN</strong></h1>
+	<h2><p>Mostrar proveedores</p></h2>
+</center>
+
+<form role="form" name="form" class="form-horizontal" >
+
+ <script cam-script type="text/form-script">
+ 	camForm.on('form-loaded',function(){
+		//indicar al form SDK que traiga la variable llamada 'dataProducto'
+		camForm.variableManager.fetchVariable('dataProducto');
+	});
+
+	camForm.on('variables-fetched',function(){
+		//trabajar con la variable (atarla al objeto $scope de AngularJS)
+		$scope.dataProducto= camForm.variableManager.variable('dataProducto').value;
+	});
+ </script>
+ 
+<div class="control-group">
+    <div class="controls">
+      
+		<h1>Proveedor:{{ dataProducto.proveedor }}</h1>
+        <h1>Precio:{{ dataProducto.precio }}</h1>
+             
+    </div>
+</div>
+
+</form>

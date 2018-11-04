@@ -1,8 +1,7 @@
-<strong>Proceso Desarrollo ProductoMN</strong>
-
-<p>
-  Ingresar proveedores del producto
-</p>
+<center>
+	<h1><strong>Desarrollo ProductoMN</strong></h1>
+	<h2><p>Ingresar proveedores</p></h2>
+</center>
 
 <form role="form" name="form" class="form-horizontal" >
 
@@ -25,7 +24,7 @@
 			  //indicar que el objeto es serializado como json
 			  serializationDataFormat: 'application/json',
 			  //proveer nombre de la clase java a mapear
-			  objectTypeName: 'org.camunda.bpm.menini_nicola.mn_desarrollo_productoMN.ProductoMN'
+			  objectTypeName: 'org.camunda.bpm.menini_nicola.mn_desarrollo_productoMN.modelo.ProductoMN'
 			}
 		});		
 
@@ -52,7 +51,14 @@
   		</span>
       </p>
       
-             
+      <label for="PRECIO" class="control-label">Precio *</label>
+   		<input 	id="idPrecio"
+   				class="form-control"
+   				type="text" 
+   				required
+   				ng-model="dataProducto.precio"
+    	   		name="PRECIO">
+               
     </div>
 </div>
 

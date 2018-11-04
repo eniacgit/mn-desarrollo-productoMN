@@ -1,10 +1,10 @@
-package org.camunda.bpm.menini_nicola.mn_desarrollo_productoMN;
+package org.camunda.bpm.menini_nicola.mn_desarrollo_productoMN.modelo;
 
 public class ProductoMN {
 
 	private String proveedor;
 	private String moneda;
-	private float monto;
+	private float precio;
 	private boolean ivaIncluido;
 	private String detalles;
 	
@@ -12,11 +12,11 @@ public class ProductoMN {
 		return proveedor;
 	}
 	
-	public ProductoMN(String proveedor, String moneda, float monto, boolean ivaIncluido, String detalles) {
+	public ProductoMN(String proveedor, String moneda, float precio, boolean ivaIncluido, String detalles) {
 		super();
 		this.proveedor = proveedor;
 		this.moneda = moneda;
-		this.monto = monto;
+		this.precio = precio;
 		this.ivaIncluido = ivaIncluido;
 		this.detalles = detalles;
 	}
@@ -30,11 +30,11 @@ public class ProductoMN {
 	public void setMoneda(String moneda) {
 		this.moneda = moneda;
 	}
-	public float getMonto() {
-		return monto;
+	public float getprecio() {
+		return precio;
 	}
-	public void setMonto(float monto) {
-		this.monto = monto;
+	public void setprecio(float precio) {
+		this.precio = precio;
 	}
 	public boolean isIvaIncluido() {
 		return ivaIncluido;
