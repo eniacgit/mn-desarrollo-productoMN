@@ -7,59 +7,123 @@
 
   <script cam-script type="text/form-script">
 	
-	//formulario angular trabaja sobre objecto scope
-	var dataProducto= $scope.dataProducto ={
+	var dataProveedor= $scope.dataProveedor ={
 	};
 
+	var dataProductoMN = $scope.dataProductoMN={
+		proveedores : []
+	};
+	
+	$scope.agregarProveedor= function() {
+		dataProductoMN.proveedores.push({});
+	};
+
+	$scope.monedas=["USD","$U"]
+	
+	$scope.impuestos=["IVA INC.", "SIN IVA"]
+	
 	//enganchar con el ciclo de vida del formulario camunda SDK 
 	camForm.on('form-loaded',function() {
 
-		/*declarar variable 'dataProducto' 
-		  incluyendo infromacion metadata para serializacion*/
 		camForm.variableManager.createVariable({
-			name: 'dataProducto',
+			name: 'dataProveedor',
 			type: 'Object',
-			value: dataProducto,
+			value: dataProveedor,
 			valueInfo: {
 			  //indicar que el objeto es serializado como json
 			  serializationDataFormat: 'application/json',
 			  //proveer nombre de la clase java a mapear
+			  objectTypeName: 'org.camunda.bpm.menini_nicola.mn_desarrollo_productoMN.modelo.ProveedorProductoMN'
+			}
+		});
+
+		camForm.variableManager.createVariable({
+			name: 'dataProductoMN',
+			type: 'Object',
+			value: dataProductoMN,
+			valueInfo: {
+			  serializationDataFormat: 'application/json',
 			  objectTypeName: 'org.camunda.bpm.menini_nicola.mn_desarrollo_productoMN.modelo.ProductoMN'
 			}
 		});		
 
+	});
+
+	//para que funcione el agregar proveedores dinamicamente
+	camForm.on('submit', function(){
+		angular.forEach(dataProductoMN.proveedores, function(prvdr) {
+			delete prvdr.$$hashKey;
+		});
 	});	
 
   </script>
 
 <div class="control-group">
     <div class="controls">
-
-      <label for="PROVEEDOR" class="control-label">Proveedor *</label>
-      <input id="idProveedor"
-      		 class="form-control" 
-      		 type="text"
-      		 required      		 
-      		 ng-model="dataProducto.proveedor"
-      		 name="PROVEEDOR" 
-             maxlength=100>
-            
-         <!--validar ingreso de proveedor-->
-      <p>
-      	<span style="color:red" ng-show="form.PROVEEDOR.$dirty && form.PROVEEDOR.$invalid">
-  		<span ng-show="form.PROVEEDOR.$error.required">proveedor es obligatorio</span>
-  		</span>
-      </p>
+	
+      <button ng-click="agregarProveedor()"> Nuevo Proveedor</button>
       
-      <label for="PRECIO" class="control-label">Precio *</label>
-   		<input 	id="idPrecio"
-   				class="form-control"
-   				type="text" 
-   				required
-   				ng-model="dataProducto.precio"
-    	   		name="PRECIO">
-               
-    </div>
+	  <div ng-repeat="prov in dataProductoMN.proveedores">
+	 	<hr>
+	   		<div class="control-group">
+       			<label for="PROVEEDOR" class="control-label">Tipo de Proveedor *</label>
+      			<input id="idTipoProveedor"
+      		 		   class="form-control" 
+      		 		   type="text"
+      		 		   required      		 
+      		 		   ng-model="dataProveedor.tipoProveedor"
+      		 		   name="PROVEEDOR" 
+             		   maxlength=100>
+            	<!--validar ingreso de proveedor-->
+      			<p>
+      				<span style="color:red" ng-show="form.PROVEEDOR.$dirty && form.PROVEEDOR.$invalid">
+  					<span ng-show="form.PROVEEDOR.$error.required">tipo proveedor es obligatorio</span>
+  					</span>
+      			</p>
+            </div>
+            
+ 			<div class="control-group">
+            	<select ng-init="dataProveedor.moneda = monedas[0]"
+            			ng-model="dataProveedor.moneda" 
+            			ng-options="x for x in monedas">
+				</select>
+			</div>
+            
+        	<div class="control-group">
+      			<label for="PRECIO" class="control-label">Precio *</label>
+   				<input 	id="idPrecio"
+   						class="form-control"
+   						type="number" 
+   						required
+   						ng-model="dataProveedor.precio"
+    	   				name="PRECIO">
+    	   		<!--validar ingreso de precio-->
+      			<p>
+      				<span style="color:red" ng-show="form.PRECIO.$dirty && form.PRECIO.$invalid">
+  					<span ng-show="form.PRECIO.$error.required">precio proveedor es obligatorio</span>
+  					</span>
+      			</p>
+      		</div>
+      		
+      		<div class="control-group">
+            	<select ng-init="dataProveedor.ivaProveedor = impuestos[0]"
+            			ng-model="dataProveedor.ivaProveedor" 
+            			ng-options="x for x in impuestos">
+				</select>
+			</div>
+			
+			<div class="control-group">
+      			<label for="DETALLES" class="control-label">Detalles</label>
+   				<input 	id="idDetalles"
+   						class="form-control"
+   						type="text" 
+   						ng-model="dataProveedor.detalles"
+    	   				name="DETALLES">
+      		</div>
+            
+      		</div>
+       </div>
+	</div>
 </div>
 
 </form>
