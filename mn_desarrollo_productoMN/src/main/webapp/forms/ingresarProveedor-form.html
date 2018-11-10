@@ -33,7 +33,7 @@
 			  //indicar que el objeto es serializado como json
 			  serializationDataFormat: 'application/json',
 			  //proveer nombre de la clase java a mapear
-			  objectTypeName: 'org.camunda.bpm.menini_nicola.mn_desarrollo_productoMN.modelo.ProveedorProductoMN'
+			  objectTypeName: 'org.camunda.bpm.menini_nicola.mn_desarrollo_productoMN.modelo.ProveedorMN'
 			}
 		});
 
@@ -58,72 +58,92 @@
 
   </script>
 
-<div class="control-group">
-    <div class="controls">
-	
-      <button ng-click="agregarProveedor()"> Nuevo Proveedor</button>
-      
+	  	<div class="control-group">
+      		<button ng-click="agregarProveedor()"> Nuevo Proveedor</button>
+      	</div>
+	  
 	  <div ng-repeat="prov in dataProductoMN.proveedores">
 	 	<hr>
-	   		<div class="control-group">
-       			<label for="PROVEEDOR" class="control-label">Tipo de Proveedor *</label>
-      			<input id="idTipoProveedor"
-      		 		   class="form-control" 
-      		 		   type="text"
-      		 		   required      		 
-      		 		   ng-model="dataProveedor.tipoProveedor"
-      		 		   name="PROVEEDOR" 
-             		   maxlength=100>
-            	<!--validar ingreso de proveedor-->
-      			<p>
-      				<span style="color:red" ng-show="form.PROVEEDOR.$dirty && form.PROVEEDOR.$invalid">
-  					<span ng-show="form.PROVEEDOR.$error.required">tipo proveedor es obligatorio</span>
-  					</span>
-      			</p>
-            </div>
+	 		
+	   			<div class="control-group">
+       				<label for="PROVEEDOR" class="control-label">Tipo de Proveedor *</label>
+      				<div class="controls">
+      					<input  id="idTipoProveedor"
+      		 				    class="form-control" 
+      		 		       		type="text"
+      		 		   	   		required      		 
+      		 		   	  		ng-model="dataProveedor.tipoProveedor"
+      		 		   	   		name="PROVEEDOR" 
+             		   	   		maxlength=100>
+             		   	   		
+             			<!--validar ingreso de proveedor-->
+      					<p>
+      					<span style="color:red" ng-show="form.PROVEEDOR.$dirty && form.PROVEEDOR.$invalid">
+  							<span ng-show="form.PROVEEDOR.$error.required">tipo proveedor es obligatorio</span>
+  						</span>
+      					</p>   	   		
+             		</div>
+            	  </div>
             
- 			<div class="control-group">
-            	<select ng-init="dataProveedor.moneda = monedas[0]"
-            			ng-model="dataProveedor.moneda" 
-            			ng-options="x for x in monedas">
-				</select>
-			</div>
-            
-        	<div class="control-group">
-      			<label for="PRECIO" class="control-label">Precio *</label>
-   				<input 	id="idPrecio"
-   						class="form-control"
-   						type="number" 
-   						required
-   						ng-model="dataProveedor.precio"
-    	   				name="PRECIO">
-    	   		<!--validar ingreso de precio-->
-      			<p>
-      				<span style="color:red" ng-show="form.PRECIO.$dirty && form.PRECIO.$invalid">
-  					<span ng-show="form.PRECIO.$error.required">precio proveedor es obligatorio</span>
-  					</span>
-      			</p>
-      		</div>
-      		
-      		<div class="control-group">
-            	<select ng-init="dataProveedor.ivaProveedor = impuestos[0]"
-            			ng-model="dataProveedor.ivaProveedor" 
-            			ng-options="x for x in impuestos">
-				</select>
-			</div>
+			<label  class="control-label">Precio *</label> 
+       		<div class="row">
+            	<div class="col-xs-2">
+ 					<div class="control-group">
+ 						<div class="controls">
+            				<select ng-init="dataProveedor.moneda = monedas[0]"
+            						ng-model="dataProveedor.moneda" 
+            						ng-options="x for x in monedas">
+							</select>
+						</div>
+					</div>
+				</div>
 			
-			<div class="control-group">
-      			<label for="DETALLES" class="control-label">Detalles</label>
-   				<input 	id="idDetalles"
-   						class="form-control"
-   						type="text" 
-   						ng-model="dataProveedor.detalles"
-    	   				name="DETALLES">
+            	<div class="col-xs-8">
+        			<div class="control-group">
+<!--       					<label  for="PRECIO" class="control-label">Precio *</label> -->
+   						<div class="controls">
+   							<input 	id="idPrecio"
+   									class="form-control"
+   									type="number" 
+   									required
+   									ng-model="dataProveedor.precio"
+    	   							name="PRECIO">
+    	   				
+    	   					<!--validar ingreso de precio-->
+      						<p>
+      							<span style="color:red" ng-show="form.PRECIO.$dirty && form.PRECIO.$invalid">
+  									<span ng-show="form.PRECIO.$error.required">precio proveedor es obligatorio</span>
+  								</span>
+      						</p>
+      					</div>
+      				</div>
+      			</div>
+      			
+      			<div class="col-xs-2">
+      				<div class="control-group">
+      					<div class="controls">
+            				<select ng-init="dataProveedor.ivaProveedor = impuestos[0]"
+            						ng-model="dataProveedor.ivaProveedor" 
+            						ng-options="x for x in impuestos">
+							</select>
+						</div>
+					</div>
+      			</div>
       		</div>
+     		
+      		      		
+				<div class="control-group">
+      				<label for="DETALLES" class="control-label">Detalles</label>
+      				<div class="controls">
+   						<input 	id="idDetalles"
+   								class="form-control"
+   								type="text" 
+   								ng-model="dataProveedor.detalles"
+    	   						name="DETALLES">
+    	   			</div>
+      			</div>
+      		
             
-      		</div>
-       </div>
-	</div>
-</div>
-
+      </div>
+   
 </form>
