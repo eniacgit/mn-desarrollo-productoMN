@@ -1,8 +1,10 @@
-package org.camunda.bpm.menini_nicola.mn_desarrollo_productoMN.modelo;
+package org.camunda.bpm.menini_nicola.mn_desarrollo_productoMN.valueObject;
 
 import java.util.List;
 
-public class ProductoMN {
+import org.camunda.bpm.menini_nicola.mn_desarrollo_productoMN.modelo.ProveedorMN;
+
+public class VOProductoMN {
 
 	private Integer idProductoMN;
 	private String trabajoRealizado; //ej. 'Fabricacion'-'Retapizado' 
@@ -15,11 +17,11 @@ public class ProductoMN {
 	private Integer idClientePresupuesto;
 	private Integer idProductoMNProveedorMN;
 	
-	public ProductoMN() {
+	public VOProductoMN() {
 		super();
 	}
 	
-	public ProductoMN(Integer idProductoMN, String trabajoRealizado, Integer cantidad, String nombre, String moneda,
+	public VOProductoMN(Integer idProductoMN, String trabajoRealizado, Integer cantidad, String nombre, String moneda,
 			Double total, String ivaProducto, List<ProveedorMN> proveedoresMN, Integer idClientePresupuesto,
 			Integer idProductoMNProveedorMN) {
 		super();
@@ -114,5 +116,5 @@ public class ProductoMN {
 	public void setIdProductoMNProveedorMN(Integer idProductoMNProveedorMN) {
 		this.idProductoMNProveedorMN = idProductoMNProveedorMN;
 	}
-		
+
 }

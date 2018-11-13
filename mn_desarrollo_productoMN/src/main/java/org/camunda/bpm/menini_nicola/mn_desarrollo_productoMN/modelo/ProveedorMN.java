@@ -2,16 +2,20 @@ package org.camunda.bpm.menini_nicola.mn_desarrollo_productoMN.modelo;
 
 public class ProveedorMN {
 
-	private int idProveedorMN;
+	private Integer idProveedorMN;
 	private String tipoProveedor;
 	private String moneda;
-	private double precio;
+	private Double precio;
 	private String ivaProveedor;
 	private String detalles;
-	private int idProductoMNProveedor;
+	private Integer idProductoMNProveedorMN;
 	
-	public ProveedorMN(int idProveedorMN, String tipoProveedor, String moneda, double precio, String ivaProveedor,
-			String detalles, int idProductoMNProveedor) {
+	public ProveedorMN() {
+		super();
+	}
+
+	public ProveedorMN(Integer idProveedorMN, String tipoProveedor, String moneda, Double precio, String ivaProveedor,
+			String detalles, Integer idProductoMNProveedorMN) {
 		super();
 		this.idProveedorMN = idProveedorMN;
 		this.tipoProveedor = tipoProveedor;
@@ -19,18 +23,14 @@ public class ProveedorMN {
 		this.precio = precio;
 		this.ivaProveedor = ivaProveedor;
 		this.detalles = detalles;
-		this.idProductoMNProveedor = idProductoMNProveedor;
+		this.idProductoMNProveedorMN = idProductoMNProveedorMN;
 	}
 
-	public ProveedorMN() {
-		super();
-	}
-
-	public int getIdProveedorMN() {
+	public Integer getIdProveedorMN() {
 		return idProveedorMN;
 	}
 
-	public void setIdProveedorMN(int idProveedorMN) {
+	public void setIdProveedorMN(Integer idProveedorMN) {
 		this.idProveedorMN = idProveedorMN;
 	}
 
@@ -50,11 +50,11 @@ public class ProveedorMN {
 		this.moneda = moneda;
 	}
 
-	public double getPrecio() {
+	public Double getPrecio() {
 		return precio;
 	}
 
-	public void setPrecio(double precio) {
+	public void setPrecio(Double precio) {
 		this.precio = precio;
 	}
 
@@ -74,13 +74,12 @@ public class ProveedorMN {
 		this.detalles = detalles;
 	}
 
-	public int getIdProductoMNProveedor() {
-		return idProductoMNProveedor;
+	public Integer getIdProductoMNProveedorMN() {
+		return idProductoMNProveedorMN;
 	}
 
-	public void setIdProductoMNProveedor(int idProductoMNProveedor) {
-		this.idProductoMNProveedor = idProductoMNProveedor;
+	public void setIdProductoMNProveedorMN(Integer idProductoMNProveedorMN) {
+		this.idProductoMNProveedorMN = idProductoMNProveedorMN;
 	}
-	
-			
+				
 }
