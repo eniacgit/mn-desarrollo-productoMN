@@ -1,11 +1,20 @@
 package org.camunda.bpm.menini_nicola.mn_desarrollo_productoMN.logica;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import org.camunda.bpm.menini_nicola.mn_desarrollo_productoMN.modelo.Cliente;
+import org.camunda.bpm.menini_nicola.mn_desarrollo_productoMN.modelo.Presupuesto;
 import org.camunda.bpm.menini_nicola.mn_desarrollo_productoMN.modelo.ProductoMN;
 import org.camunda.bpm.menini_nicola.mn_desarrollo_productoMN.modelo.ProductoMNProveedorMN;
 import org.camunda.bpm.menini_nicola.mn_desarrollo_productoMN.modelo.ProveedorMN;
+import org.camunda.bpm.menini_nicola.mn_desarrollo_productoMN.persistencia.DAOCliente;
+import org.camunda.bpm.menini_nicola.mn_desarrollo_productoMN.persistencia.DAOPresupuesto;
 import org.camunda.bpm.menini_nicola.mn_desarrollo_productoMN.persistencia.DAOProductoMN;
 import org.camunda.bpm.menini_nicola.mn_desarrollo_productoMN.persistencia.DAOProductoMNProveedorMN;
 import org.camunda.bpm.menini_nicola.mn_desarrollo_productoMN.persistencia.DAOProveedorMN;
+import org.camunda.bpm.menini_nicola.mn_desarrollo_productoMN.valueObject.VOCliente;
+import org.camunda.bpm.menini_nicola.mn_desarrollo_productoMN.valueObject.VOPresupuesto;
 import org.camunda.bpm.menini_nicola.mn_desarrollo_productoMN.valueObject.VOProductoMN;
 import org.camunda.bpm.menini_nicola.mn_desarrollo_productoMN.valueObject.VOProductoMNProveedorMN;
 import org.camunda.bpm.menini_nicola.mn_desarrollo_productoMN.valueObject.VOProveedorMN;
@@ -98,6 +107,27 @@ public class Fachada implements IFachada {
     	rowCount= daoProductoMNProveedorMN.insertarProductoMNProveedorMN(productoMNProveedorMN);
     	
     	return rowCount;
+    }
+    
+    public Cliente selectClientePresupuestoAprobado(VOPresupuesto voPresupuesto)
+    {
+    	Cliente cliente= new Cliente();
+    	DAOCliente daoCliente= new DAOCliente();
+    	
+    	Integer idPresupuesto= voPresupuesto.getIdPresupuesto();
+    	cliente= daoCliente.selectClientePresupuestoAprobado(idPresupuesto);
+    	
+    	return cliente;
+    }
+    
+    public List<Presupuesto> selectPresupuestosAprobados()
+    {
+    	List<Presupuesto> presupuestosAprobados= new ArrayList<Presupuesto>();
+    	DAOPresupuesto daoPresupuesto = new DAOPresupuesto();
+    	
+    	presupuestosAprobados= daoPresupuesto.selectPresupuestosAprobados();
+    	
+    	return presupuestosAprobados;
     }
     
 }

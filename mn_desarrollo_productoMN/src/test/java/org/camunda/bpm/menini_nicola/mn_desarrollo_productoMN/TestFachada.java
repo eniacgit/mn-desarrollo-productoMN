@@ -15,7 +15,7 @@ import org.camunda.bpm.menini_nicola.mn_desarrollo_productoMN.valueObject.VOProd
 import org.camunda.bpm.menini_nicola.mn_desarrollo_productoMN.valueObject.VOProductoMNProveedorMN;
 import org.camunda.bpm.menini_nicola.mn_desarrollo_productoMN.valueObject.VOProveedorMN;
 
-public class FachadaTest {
+public class TestFachada {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -38,6 +38,7 @@ public class FachadaTest {
 		else 
 			System.out.println("Cantidad de registros afectados: "+rowCount+". NO se inserto proveedor en BD");
 
+		
 		//PRUEBO insertarProductoMN
 		
 		int rowCountProveedoresMN=0;
@@ -60,6 +61,7 @@ public class FachadaTest {
 		else 
 			System.out.println("Cantidad de registros afectados: "+rowCountProductoMN+". NO se inserto productoMN en BD");
 	
+		
 		//PRUEBO insertarProductoMNProveedorMN
 		
 		int rowCountProductoMNProveedorMN=0;
@@ -77,7 +79,9 @@ public class FachadaTest {
 			System.out.println("Se inserto productoMNproveedorMN en BD. Canitdad de registros afectados: "+rowCountProductoMNProveedorMN);
 		else 
 			System.out.println("Cantidad de registros afectados: "+rowCountProductoMNProveedorMN+". NO se inserto productoMNproveedorMN en BD");
+	
 		
+	
 	}	
 		
 }

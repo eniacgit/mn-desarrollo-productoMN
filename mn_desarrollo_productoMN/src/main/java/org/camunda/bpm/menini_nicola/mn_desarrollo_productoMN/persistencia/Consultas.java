@@ -13,7 +13,7 @@ public class Consultas {
 	//CONSULTAS TABLA: mn_productoMN_proveedorMN
 	public String insertarProductoMNProveedorMN()
 	{
-		String insert="INSERT INTO mn_productoMN_proveedorMN(idProductoMN,idProveedorMN) VALUES (?,?)";
+		String insert="INSERT INTO mn_productoMN_proveedorMN(idProductoMN,idProveedorMN) VALUES (?,?);";
 		return insert;
 	}
 	//CONSULTAS TABLA: mn_proveedorMN
@@ -23,6 +23,40 @@ public class Consultas {
 				"VALUES (?,?,?,?,?,?);";
 		
 		return insert;
+	}
+	
+	//CONSULTAS TABLA: mn_presupuesto
+	
+	//obtiene los datos de los presupestos que fueron aprobados
+	public String selectPresupuestosAprobados()
+	{
+		String select="SELECT \n" + 
+				"presupuesto.idPresupuesto,\n" + 
+				"presupuesto.cotizacion,\n" + 
+				"presupuesto.fecha,\n" + 
+				"presupuesto.moneda,\n" + 
+				"presupuesto.costo,\n" + 
+				"presupuesto.condicionesVenta,\n" + 
+				"presupuesto.descripcion\n" + 
+				"FROM mn_presupuesto presupuesto INNER JOIN mn_cliente_presupuesto cliePres ON\n" + 
+				"															 presupuesto.idPresupuesto = cliePres.idPresupuesto\n" + 
+				"WHERE cliePres.estado=1";				
+		return select;
+	}
+		
+	//CONSULTAS TABLA: mn_cliente
+	
+	//obtiene los datos de un cliente que aprobo un presupuesto determinado 
+	public String selectClientePresupuestoAprobado()
+	{
+		String select="\n" + 
+				"select * from mn_cliente cliente\n" + 
+				"inner join mn_cliente_presupuesto cliePres on\n" + 
+				"			  cliente.idCliente= cliePres.idCliente\n" + 
+				"inner join mn_presupuesto presupuesto on \n" + 
+				"				presupuesto.idPresupuesto= cliePres.idPresupuesto\n" + 
+				"where cliePres.estado = 1 and presupuesto.idPresupuesto= ?;";
+		return select;
 	}
 	
 }
