@@ -12,7 +12,7 @@ public class TestProveedorMN {
 		int rowCount=0;
 		
 		//setear objeto ProveedorMN con datos reales 
-		ProveedorMN proveedorMN= new ProveedorMN(null,"Tela","USD",(double)56,"IVA INC.","(Tela Dakota Bemaor)*",null);
+		ProveedorMN proveedorMN= new ProveedorMN(null,"Tela","USD",(double)56,"IVA INC.","(Tela Dakota Bemaor)*");//,null);
 		System.out.println("Insertar proveedor en BD");
 		System.out.println("datos proveedor: "+proveedorMN.getTipoProveedor()+" "+proveedorMN.getMoneda()+" "+proveedorMN.getPrecio()+" "
 											  +proveedorMN.getIvaProveedor()+" "+proveedorMN.getDetalles());

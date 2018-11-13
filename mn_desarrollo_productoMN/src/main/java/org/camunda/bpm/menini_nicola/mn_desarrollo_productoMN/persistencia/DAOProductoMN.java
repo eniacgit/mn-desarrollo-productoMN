@@ -80,10 +80,10 @@ public class DAOProductoMN {
 			else
 				pstmt.setInt(7, productoMN.getIdClientePresupuesto());
 			
-			if(productoMN.getIdProductoMNProveedorMN()==null)
+			/*if(productoMN.getIdProductoMNProveedorMN()==null)
 				pstmt.setNull(8,java.sql.Types.INTEGER);
 			else
-				pstmt.setInt(8, productoMN.getIdProductoMNProveedorMN());
+				pstmt.setInt(8, productoMN.getIdProductoMNProveedorMN());*/
 			
 			rowCount= pstmt.executeUpdate();
 		} catch (SQLException e) {

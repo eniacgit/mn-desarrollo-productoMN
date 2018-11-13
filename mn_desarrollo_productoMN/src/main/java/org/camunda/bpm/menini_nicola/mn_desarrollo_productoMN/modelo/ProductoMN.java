@@ -13,15 +13,15 @@ public class ProductoMN {
 	private String ivaProducto;
 	private List<ProveedorMN> proveedoresMN;
 	private Integer idClientePresupuesto;
-	private Integer idProductoMNProveedorMN;
+	//private Integer idProductoMNProveedorMN;
 	
 	public ProductoMN() {
 		super();
 	}
 	
 	public ProductoMN(Integer idProductoMN, String trabajoRealizado, Integer cantidad, String nombre, String moneda,
-			Double total, String ivaProducto, List<ProveedorMN> proveedoresMN, Integer idClientePresupuesto,
-			Integer idProductoMNProveedorMN) {
+			Double total, String ivaProducto, List<ProveedorMN> proveedoresMN, Integer idClientePresupuesto) {//,
+			//Integer idProductoMNProveedorMN) {
 		super();
 		this.idProductoMN = idProductoMN;
 		this.trabajoRealizado = trabajoRealizado;
@@ -32,7 +32,7 @@ public class ProductoMN {
 		this.ivaProducto = ivaProducto;
 		this.proveedoresMN = proveedoresMN;
 		this.idClientePresupuesto = idClientePresupuesto;
-		this.idProductoMNProveedorMN = idProductoMNProveedorMN;
+		//this.idProductoMNProveedorMN = idProductoMNProveedorMN;
 	}
 	
 	public Integer getIdProductoMN() {
@@ -107,12 +107,12 @@ public class ProductoMN {
 		this.idClientePresupuesto = idClientePresupuesto;
 	}
 
-	public Integer getIdProductoMNProveedorMN() {
+	/*public Integer getIdProductoMNProveedorMN() {
 		return idProductoMNProveedorMN;
 	}
 
 	public void setIdProductoMNProveedorMN(Integer idProductoMNProveedorMN) {
 		this.idProductoMNProveedorMN = idProductoMNProveedorMN;
-	}
+	}*/
 		
 }

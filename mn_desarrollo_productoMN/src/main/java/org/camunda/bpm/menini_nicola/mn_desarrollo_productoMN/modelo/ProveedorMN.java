@@ -8,14 +8,14 @@ public class ProveedorMN {
 	private Double precio;
 	private String ivaProveedor;
 	private String detalles;
-	private Integer idProductoMNProveedorMN;
+	//private Integer idProductoMNProveedorMN;
 	
 	public ProveedorMN() {
 		super();
 	}
 
 	public ProveedorMN(Integer idProveedorMN, String tipoProveedor, String moneda, Double precio, String ivaProveedor,
-			String detalles, Integer idProductoMNProveedorMN) {
+			String detalles) { //, Integer idProductoMNProveedorMN) {
 		super();
 		this.idProveedorMN = idProveedorMN;
 		this.tipoProveedor = tipoProveedor;
@@ -23,7 +23,7 @@ public class ProveedorMN {
 		this.precio = precio;
 		this.ivaProveedor = ivaProveedor;
 		this.detalles = detalles;
-		this.idProductoMNProveedorMN = idProductoMNProveedorMN;
+		//this.idProductoMNProveedorMN = idProductoMNProveedorMN;
 	}
 
 	public Integer getIdProveedorMN() {
@@ -74,12 +74,12 @@ public class ProveedorMN {
 		this.detalles = detalles;
 	}
 
-	public Integer getIdProductoMNProveedorMN() {
+	/*public Integer getIdProductoMNProveedorMN() {
 		return idProductoMNProveedorMN;
 	}
 
 	public void setIdProductoMNProveedorMN(Integer idProductoMNProveedorMN) {
 		this.idProductoMNProveedorMN = idProductoMNProveedorMN;
-	}
+	}*/
 				
 }

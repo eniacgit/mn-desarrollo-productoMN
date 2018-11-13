@@ -5,8 +5,8 @@ public class Consultas {
 	//CONSULTAS TABLA: mn_productoMN
 	public String insertarProductoMN()
 	{
-		String insert="INSERT INTO mn_productoMN(trabajoRealizado,cantidad,nombre,moneda,total,ivaProducto,idClientePresupuesto,idProductoMNProveedorMN)\n" + 
-				"VALUES (?,?,?,?,?,?,?,?);";
+		String insert="INSERT INTO mn_productoMN(trabajoRealizado,cantidad,nombre,moneda,total,ivaProducto,idClientePresupuesto)\n" + 
+				"VALUES (?,?,?,?,?,?,?);";
 		return insert;
 	}
 	
@@ -19,8 +19,8 @@ public class Consultas {
 	//CONSULTAS TABLA: mn_proveedorMN
 	public String insertarProveedorMN()
 	{
-		String insert="INSERT INTO mn_proveedorMN(tipoProveedor,moneda,precio,ivaProveedor,detalles,idProductoMNProveedorMN)\n" + 
-				"VALUES (?,?,?,?,?,?);";
+		String insert="INSERT INTO mn_proveedorMN(tipoProveedor,moneda,precio,ivaProveedor,detalles)\n" + 
+				"VALUES (?,?,?,?,?);";
 		
 		return insert;
 	}

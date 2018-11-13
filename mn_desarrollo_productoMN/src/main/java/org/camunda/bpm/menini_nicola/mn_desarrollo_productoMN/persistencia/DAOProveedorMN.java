@@ -46,13 +46,13 @@ public class DAOProveedorMN {
 				pstmt.setNull(5, java.sql.Types.CHAR);
 			else
 				pstmt.setString(5, proveedorMN.getDetalles());
-			
+			/*
 			if(proveedorMN.getIdProductoMNProveedorMN()==null)
 				pstmt.setNull(6,java.sql.Types.INTEGER);
 				//pstmt.setInt(6, (Integer) null);
 			else
 				pstmt.setInt(6, proveedorMN.getIdProductoMNProveedorMN());
-			
+			*/
 			rowCount= pstmt.executeUpdate();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

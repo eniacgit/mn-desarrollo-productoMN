@@ -52,7 +52,7 @@ public class Fachada implements IFachada {
     	proveedorMN.setPrecio(voProveedorMN.getPrecio());
     	proveedorMN.setIvaProveedor(voProveedorMN.getIvaProveedor());
     	proveedorMN.setDetalles(voProveedorMN.getDetalles());
-    	proveedorMN.setIdProductoMNProveedorMN(voProveedorMN.getIdProductoMNProveedorMN());
+    	//proveedorMN.setIdProductoMNProveedorMN(voProveedorMN.getIdProductoMNProveedorMN());
     	
     	//persistir a BD
     	rowCount=daoProveedorMN.insertarProveedorMN(proveedorMN);
@@ -80,7 +80,7 @@ public class Fachada implements IFachada {
      	productoMN.setIvaProducto(voProductoMN.getIvaProducto());
      	productoMN.setProveedoresMN(voProductoMN.getProveedoresMN());
      	productoMN.setIdClientePresupuesto(voProductoMN.getIdClientePresupuesto());
-     	productoMN.setIdProductoMNProveedorMN(voProductoMN.getIdProductoMNProveedorMN());
+     	//productoMN.setIdProductoMNProveedorMN(voProductoMN.getIdProductoMNProveedorMN());
     	
      	//persistir a BD
      	rowCount= daoProductoMN.insertarProductoMN(productoMN);
@@ -109,6 +109,7 @@ public class Fachada implements IFachada {
     	return rowCount;
     }
     
+    @Override
     public Cliente selectClientePresupuestoAprobado(VOPresupuesto voPresupuesto)
     {
     	Cliente cliente= new Cliente();
@@ -120,6 +121,7 @@ public class Fachada implements IFachada {
     	return cliente;
     }
     
+    @Override
     public List<Presupuesto> selectPresupuestosAprobados()
     {
     	List<Presupuesto> presupuestosAprobados= new ArrayList<Presupuesto>();

@@ -17,12 +17,12 @@ public class TestProductoMN {
 		
 		//insertar lista de ProveedorMN 
 		List<ProveedorMN> proveedoresMN= new ArrayList<ProveedorMN>(); 
-		ProveedorMN proveedorMN= new ProveedorMN(null,"Tapiceria","USD",(double)120,"IVA INC.","(Miguel)",null);
-		ProveedorMN proveedorMN2= new ProveedorMN(null,"Carpinteria","USD",(double)14,"S/IVA","(Valsani)",null);
+		ProveedorMN proveedorMN= new ProveedorMN(null,"Tapiceria","USD",(double)120,"IVA INC.","(Miguel)");//,null);
+		ProveedorMN proveedorMN2= new ProveedorMN(null,"Carpinteria","USD",(double)14,"S/IVA","(Valsani)");//,null);
 		proveedoresMN.add(proveedorMN);
 		proveedoresMN.add(proveedorMN2);
 		 
-		ProductoMN productoMN= new ProductoMN(null,"fabricacion",2,"silla BE","USD",(double)500,"IVA INC.",proveedoresMN,null,null);
+		ProductoMN productoMN= new ProductoMN(null,"fabricacion",2,"silla BE","USD",(double)500,"IVA INC.",proveedoresMN,null);//,null);
 		System.out.println("Insertar lista de proveedores en BD");
 		
 		rowCountProveedoresMN= daoProductoMN.insertarProveedoresProductoMN(proveedoresMN);
