@@ -7,11 +7,11 @@
 
   <script cam-script type="text/form-script">
 	
-	var dataProveedor= $scope.dataProveedor ={
-	};
-
 	var dataProductoMN = $scope.dataProductoMN={
 		proveedores : []
+	};
+
+	var dataProveedor= $scope.dataProveedor ={
 	};
 	
 	$scope.agregarProveedor= function() {
@@ -24,7 +24,21 @@
 	
 	//enganchar con el ciclo de vida del formulario camunda SDK 
 	camForm.on('form-loaded',function() {
+		
+		//declarar variable 'dataProductoMN' incluyendo metadata para serializacion
+		camForm.variableManager.createVariable({
+			name: 'dataProductoMN',
+			type: 'Object',
+			value: dataProductoMN,
+			valueInfo: {
+			  //indicar que el objeto es serializado como json
+			  serializationDataFormat: 'application/json',
+			  //proveer nombre de la clase java a mapear
+			  objectTypeName: 'org.camunda.bpm.menini_nicola.mn_desarrollo_productoMN.modelo.ProductoMN'
+			}
+		});
 
+		//declarar variable 'dataProveedor' incluyendo metadata para serializacion
 		camForm.variableManager.createVariable({
 			name: 'dataProveedor',
 			type: 'Object',
@@ -34,17 +48,7 @@
 			  serializationDataFormat: 'application/json',
 			  //proveer nombre de la clase java a mapear
 			  objectTypeName: 'org.camunda.bpm.menini_nicola.mn_desarrollo_productoMN.modelo.ProveedorMN'
-			}
-		});
-
-		camForm.variableManager.createVariable({
-			name: 'dataProductoMN',
-			type: 'Object',
-			value: dataProductoMN,
-			valueInfo: {
-			  serializationDataFormat: 'application/json',
-			  objectTypeName: 'org.camunda.bpm.menini_nicola.mn_desarrollo_productoMN.modelo.ProductoMN'
-			}
+			}	
 		});		
 
 	});

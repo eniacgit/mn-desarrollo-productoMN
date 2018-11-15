@@ -2,12 +2,12 @@ package org.camunda.bpm.menini_nicola.mn_desarrollo_productoMN.modelo;
 
 public class ProveedorMN {
 
-	private Integer idProveedorMN;
-	private String tipoProveedor;
-	private String moneda;
-	private Double precio;
-	private String ivaProveedor;
-	private String detalles;
+	protected Integer idProveedorMN;
+	protected String tipoProveedor;
+	protected String moneda;
+	protected Double precio;
+	protected String ivaProveedor;
+	protected String detalles;
 	//private Integer idProductoMNProveedorMN;
 	
 	public ProveedorMN() {

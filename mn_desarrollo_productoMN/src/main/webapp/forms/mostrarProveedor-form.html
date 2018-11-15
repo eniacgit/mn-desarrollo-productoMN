@@ -6,22 +6,36 @@
 <form role="form" name="form" class="form-horizontal" >
 
  <script cam-script type="text/form-script">
- 	camForm.on('form-loaded',function(){
-		//indicar al form SDK que traiga la variable llamada 'dataProducto'
-		camForm.variableManager.fetchVariable('dataProducto');
+
+ 	camForm.on('form-loaded', function() {
+
+		//traer la variable de java llamada 'dataProductoMN'
+		camForm.variableManager.fetchVariable('dataProductoMN');
+		
+		//traer la variable de java llamada 'dataProveedor'
+		camForm.variableManager.fetchVariable('dataProveedor');
+
 	});
 
-	camForm.on('variables-fetched',function(){
+	camForm.on('variables-fetched', function() {
+
 		//trabajar con la variable (atarla al objeto $scope de AngularJS)
-		$scope.dataProducto= camForm.variableManager.variable('dataProducto').value;
+		$scope.dataProductoMN= camForm.variableManager.variable('dataProductoMN').value;
+		
+		//trabajar con la variable (atarla al objeto $scope de AngularJS)
+		$scope.dataProveedor= camForm.variableManager.variable('dataProveedor').value;
+
 	});
  </script>
  
 <div class="control-group">
     <div class="controls">
       
-		<h1>Proveedor:{{ dataProducto.proveedor }}</h1>
-        <h1>Precio:{{ dataProducto.precio }}</h1>
+		<h1>Nombe Producto:{{ dataProductoMN.proveedor }}</h1>
+        <h1>Total Producto:{{ dataProductoMN.total }}</h1>
+        
+        <h1>Nombre Proveedor:{{ dataProveedor.tipoProveedor }}</h1>
+        <h1>Precio Proveedor:{{ dataProveedor.precio }}</h1>
              
     </div>
 </div>

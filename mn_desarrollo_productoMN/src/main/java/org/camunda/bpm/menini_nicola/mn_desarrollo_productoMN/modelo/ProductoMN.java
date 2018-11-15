@@ -4,15 +4,15 @@ import java.util.List;
 
 public class ProductoMN {
 
-	private Integer idProductoMN;
-	private String trabajoRealizado; //ej. 'Fabricacion'-'Retapizado' 
-	private Integer cantidad; 
-	private String nombre; //ej. 'silla BE' 
-	private String moneda;
-	private Double total;
-	private String ivaProducto;
-	private List<ProveedorMN> proveedoresMN;
-	private Integer idClientePresupuesto;
+	protected Integer idProductoMN;
+	protected String trabajoRealizado; //ej. 'Fabricacion'-'Retapizado' 
+	protected Integer cantidad; 
+	protected String nombre; //ej. 'silla BE' 
+	protected String moneda;
+	protected Double total;
+	protected String ivaProducto;
+	protected List<ProveedorMN> proveedoresMN;
+	protected Integer idClientePresupuesto;
 	//private Integer idProductoMNProveedorMN;
 	
 	public ProductoMN() {
