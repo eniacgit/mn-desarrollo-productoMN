@@ -1,5 +1,6 @@
 package org.camunda.bpm.menini_nicola.mn_desarrollo_productoMN.modelo;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ProductoMN {
@@ -11,7 +12,7 @@ public class ProductoMN {
 	protected String moneda;
 	protected Double total;
 	protected String ivaProducto;
-	protected List<ProveedorMN> proveedoresMN;
+	protected List<ProveedorMN> proveedoresMN= new ArrayList<ProveedorMN>();
 	protected Integer idClientePresupuesto;
 	//private Integer idProductoMNProveedorMN;
 	
@@ -106,7 +107,13 @@ public class ProductoMN {
 	public void setIdClientePresupuesto(Integer idClientePresupuesto) {
 		this.idClientePresupuesto = idClientePresupuesto;
 	}
-
+	
+	public String toString() {
+	    return "ProductoMN [idProductoMN=" + idProductoMN + ", trabajoRealizado=" + trabajoRealizado + ", cantidad=" + cantidad + ", nombre=" + nombre + 
+	    					 ", moneda=" + moneda + ", total=" + total + ", ivaProducto=" + ivaProducto + ", proveedoresMN=" + proveedoresMN +
+	    					 ", idClientePresupuesto=" + idClientePresupuesto +"]";
+	}
+	
 	/*public Integer getIdProductoMNProveedorMN() {
 		return idProductoMNProveedorMN;
 	}

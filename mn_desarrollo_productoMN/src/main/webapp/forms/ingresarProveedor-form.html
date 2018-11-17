@@ -8,12 +8,12 @@
   <script cam-script type="text/form-script">
 	
 	var dataProductoMN = $scope.dataProductoMN={
-		proveedores : []
+		proveedoresMN : []
 	};
 
 	// funcion scope que agrega proveedores
 	$scope.agregarProveedor= function() {
-		dataProductoMN.proveedores.push({});
+		dataProductoMN.proveedoresMN.push({});
 	};
 	
 	$scope.monedas=["USD","$U"]
@@ -41,7 +41,7 @@
 
 	//para que funcione el agregar proveedores dinamicamente
 	camForm.on('submit', function(){
-		angular.forEach(dataProductoMN.proveedores, function(prvdr) {
+		angular.forEach(dataProductoMN.proveedoresMN, function(prvdr) {
 			delete prvdr.$$hashKey;
 		});
 	});	
@@ -52,7 +52,7 @@
       		<button ng-click="agregarProveedor()"> Nuevo Proveedor</button>
       	</div>
 	  
-	  <div ng-repeat="prov in dataProductoMN.proveedores">
+	  <div ng-repeat="prov in dataProductoMN.proveedoresMN">
 	 	<hr>
 	 		
 	   			<div class="control-group">

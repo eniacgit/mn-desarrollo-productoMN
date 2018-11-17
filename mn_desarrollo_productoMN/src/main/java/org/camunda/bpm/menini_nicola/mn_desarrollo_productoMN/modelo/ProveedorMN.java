@@ -81,5 +81,10 @@ public class ProveedorMN {
 	public void setIdProductoMNProveedorMN(Integer idProductoMNProveedorMN) {
 		this.idProductoMNProveedorMN = idProductoMNProveedorMN;
 	}*/
+	
+	public String toString() {
+	    return "ProveedorMN [idProveedorMN=" + idProveedorMN + ", tipoProveedor=" + tipoProveedor + ", moneda=" + moneda + ", precio=" + precio + 
+	    					 ", ivaProveedor=" + ivaProveedor + ", detalles=" + detalles + "]";
+	}
 				
 }

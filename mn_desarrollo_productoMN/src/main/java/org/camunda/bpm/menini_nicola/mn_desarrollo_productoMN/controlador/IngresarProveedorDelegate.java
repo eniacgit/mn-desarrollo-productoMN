@@ -11,11 +11,8 @@ public class IngresarProveedorDelegate implements JavaDelegate {
 	public void execute(DelegateExecution execution) throws Exception {
 		
 		//extraer valores desde 'ingresarProveedor-from.html' y mapear a objeto Java 
-		//ProductoMN dataProductoMN = new ProductoMN();
-		//dataProductoMN= (ProductoMN)execution.getVariable("dataProductoMN");
-		
-		ProveedorMN dataProveedor = new ProveedorMN();
-		dataProveedor= (ProveedorMN)execution.getVariable("dataProveedor");
+		ProductoMN dataProductoMN = new ProductoMN();
+		dataProductoMN= (ProductoMN)execution.getVariable("dataProductoMN");
 		
 		
 	}

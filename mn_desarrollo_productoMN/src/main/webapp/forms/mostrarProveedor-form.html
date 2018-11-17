@@ -23,7 +23,7 @@
 
  	//para que funcione el agregar proveedores dinamicamente
 	camForm.on('submit', function(){
-		angular.forEach(dataProductoMN.proveedores, function(prvdr) {
+		angular.forEach(dataProductoMN.proveedoresMN, function(prvdr) {
 			delete prvdr.$$hashKey;
 		});
 	});
@@ -33,14 +33,11 @@
 <div class="control-group">
     <div class="controls">
       
-      <div ng-repeat="prov in dataProductoMN.proveedores">
+      <div ng-repeat="prov in dataProductoMN.proveedoresMN">
 		
 		<h1>Nombre Proveedor:{{ prov.tipoProveedor }}</h1>
    		<h1>Precio Proveedor:{{ prov.precio }}</h1>
    		<h1>Detalles Proveedor: {{prov.detalles}}</h1>
-		
-<!-- 	<h1>Nombe Producto:{{ prov.proveedores }}</h1> -->
-<!--    <h1>Total Producto:{{ prov.total }}</h1> -->
       
       </div>
              
