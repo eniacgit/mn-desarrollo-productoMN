@@ -12,9 +12,6 @@
 		//traer la variable de java llamada 'dataProductoMN'
 		camForm.variableManager.fetchVariable('dataProductoMN');
 		
-		//traer la variable de java llamada 'dataProveedor'
-		camForm.variableManager.fetchVariable('dataProveedor');
-
 	});
 
 	camForm.on('variables-fetched', function() {
@@ -22,20 +19,30 @@
 		//trabajar con la variable (atarla al objeto $scope de AngularJS)
 		$scope.dataProductoMN= camForm.variableManager.variable('dataProductoMN').value;
 		
-		//trabajar con la variable (atarla al objeto $scope de AngularJS)
-		$scope.dataProveedor= camForm.variableManager.variable('dataProveedor').value;
-
 	});
+
+ 	//para que funcione el agregar proveedores dinamicamente
+	camForm.on('submit', function(){
+		angular.forEach(dataProductoMN.proveedores, function(prvdr) {
+			delete prvdr.$$hashKey;
+		});
+	});
+
  </script>
  
 <div class="control-group">
     <div class="controls">
       
-		<h1>Nombe Producto:{{ dataProductoMN.proveedor }}</h1>
-        <h1>Total Producto:{{ dataProductoMN.total }}</h1>
-        
-        <h1>Nombre Proveedor:{{ dataProveedor.tipoProveedor }}</h1>
-        <h1>Precio Proveedor:{{ dataProveedor.precio }}</h1>
+      <div ng-repeat="prov in dataProductoMN.proveedores">
+		
+		<h1>Nombre Proveedor:{{ prov.tipoProveedor }}</h1>
+   		<h1>Precio Proveedor:{{ prov.precio }}</h1>
+   		<h1>Detalles Proveedor: {{prov.detalles}}</h1>
+		
+<!-- 	<h1>Nombe Producto:{{ prov.proveedores }}</h1> -->
+<!--    <h1>Total Producto:{{ prov.total }}</h1> -->
+      
+      </div>
              
     </div>
 </div>

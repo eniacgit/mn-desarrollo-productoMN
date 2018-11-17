@@ -11,13 +11,11 @@
 		proveedores : []
 	};
 
-	var dataProveedor= $scope.dataProveedor ={
-	};
-	
+	// funcion scope que agrega proveedores
 	$scope.agregarProveedor= function() {
 		dataProductoMN.proveedores.push({});
 	};
-
+	
 	$scope.monedas=["USD","$U"]
 	
 	$scope.impuestos=["IVA INC.", "SIN IVA"]
@@ -38,18 +36,6 @@
 			}
 		});
 
-		//declarar variable 'dataProveedor' incluyendo metadata para serializacion
-		camForm.variableManager.createVariable({
-			name: 'dataProveedor',
-			type: 'Object',
-			value: dataProveedor,
-			valueInfo: {
-			  //indicar que el objeto es serializado como json
-			  serializationDataFormat: 'application/json',
-			  //proveer nombre de la clase java a mapear
-			  objectTypeName: 'org.camunda.bpm.menini_nicola.mn_desarrollo_productoMN.modelo.ProveedorMN'
-			}	
-		});		
 
 	});
 
@@ -76,7 +62,7 @@
       		 				    class="form-control" 
       		 		       		type="text"
       		 		   	   		required      		 
-      		 		   	  		ng-model="dataProveedor.tipoProveedor"
+      		 		   	  		ng-model="prov.tipoProveedor"
       		 		   	   		name="PROVEEDOR" 
              		   	   		maxlength=100>
              		   	   		
@@ -94,8 +80,8 @@
             	<div class="col-xs-2">
  					<div class="control-group">
  						<div class="controls">
-            				<select ng-init="dataProveedor.moneda = monedas[0]"
-            						ng-model="dataProveedor.moneda" 
+            				<select ng-init="prov.moneda = monedas[0]"
+            						ng-model="prov.moneda" 
             						ng-options="x for x in monedas">
 							</select>
 						</div>
@@ -110,7 +96,7 @@
    									class="form-control"
    									type="number" 
    									required
-   									ng-model="dataProveedor.precio"
+   									ng-model="prov.precio"
     	   							name="PRECIO">
     	   				
     	   					<!--validar ingreso de precio-->
@@ -126,8 +112,8 @@
       			<div class="col-xs-2">
       				<div class="control-group">
       					<div class="controls">
-            				<select ng-init="dataProveedor.ivaProveedor = impuestos[0]"
-            						ng-model="dataProveedor.ivaProveedor" 
+            				<select ng-init="prov.ivaProveedor = impuestos[0]"
+            						ng-model="prov.ivaProveedor" 
             						ng-options="x for x in impuestos">
 							</select>
 						</div>
@@ -142,12 +128,11 @@
    						<input 	id="idDetalles"
    								class="form-control"
    								type="text" 
-   								ng-model="dataProveedor.detalles"
+   								ng-model="prov.detalles"
     	   						name="DETALLES">
     	   			</div>
       			</div>
       		
-            
       </div>
    
 </form>
